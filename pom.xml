@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example.plugins.tutorial.jira</groupId>
     <artifactId>tutorial-jira-custom-field</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <organization>
         <name>Atlassian Developers</name>
         <url>https://developer.atlassian.com/</url>
@@ -100,7 +99,8 @@
         <developerConnection>
             scm:git:https://github.com/Qusai3toon/jira-custom-field.git
         </developerConnection>
-    </scm>
+      <tag>tutorial-jira-custom-field-1.0.0</tag>
+  </scm>
 <!-- https://github.com/Qusai3toon/jira-custom-field.git-->
     <build>
         <plugins>
