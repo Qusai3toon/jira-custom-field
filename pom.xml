@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example.plugins.tutorial.jira</groupId>
     <artifactId>tutorial-jira-custom-field</artifactId>
@@ -10,7 +11,8 @@
         <url>https://developer.atlassian.com/</url>
     </organization>
     <name>tutorial-jira-custom-field</name>
-    <description>This is the com.example.plugins.tutorial.jira:tutorial-jira-custom-field plugin for Atlassian JIRA.</description>
+    <description>This is the com.example.plugins.tutorial.jira:tutorial-jira-custom-field plugin for Atlassian JIRA.
+    </description>
     <packaging>atlassian-plugin</packaging>
     <dependencies>
         <dependency>
@@ -94,6 +96,12 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <scm>
+        <developerConnection>
+            scm:git:https://github.com/Qusai3toon/jira-custom-field.git
+        </developerConnection>
+    </scm>
+<!-- https://github.com/Qusai3toon/jira-custom-field.git-->
     <build>
         <plugins>
             <plugin>
@@ -121,7 +129,9 @@
                         <!-- Add package to export here -->
                         <Export-Package>com.example.plugins.tutorial.jira.customfields.api,</Export-Package>
                         <!-- Add package import here -->
-                        <Import-Package>org.springframework.osgi.*;resolution:="optional", org.eclipse.gemini.blueprint.*;resolution:="optional", *</Import-Package>
+                        <Import-Package>org.springframework.osgi.*;resolution:="optional",
+                            org.eclipse.gemini.blueprint.*;resolution:="optional", *
+                        </Import-Package>
                         <!-- Ensure plugin is spring powered -->
                         <Spring-Context>*</Spring-Context>
                     </instructions>
