@@ -13,7 +13,7 @@ public class MoneyCustomFieldTest {
     @Test
     public void testGetDbValueFromObject() throws Exception
     {
-        MoneyCustomField moneyCustomField = new MoneyCustomField(null, null);
+        MoneyCustomField moneyCustomField = new MoneyCustomField(null, null, null);
         assertEquals("1", moneyCustomField.getDbValueFromObject(new BigDecimal(1)));
         assertEquals("1.02", moneyCustomField.getDbValueFromObject(new BigDecimal("1.02")));
         assertEquals("0.02", moneyCustomField.getDbValueFromObject(new BigDecimal("0.02")));
@@ -22,7 +22,7 @@ public class MoneyCustomFieldTest {
     @Test
     public void testGetStringFromSingularObject() throws Exception
     {
-        MoneyCustomField moneyCustomField = new MoneyCustomField(null, null);
+        MoneyCustomField moneyCustomField = new MoneyCustomField(null, null, null);
         assertEquals("1", moneyCustomField.getStringFromSingularObject(new BigDecimal(1)));
         assertEquals("1.02", moneyCustomField.getStringFromSingularObject(new BigDecimal("1.02")));
         assertEquals("0.02", moneyCustomField.getStringFromSingularObject(new BigDecimal("0.02")));
@@ -31,7 +31,7 @@ public class MoneyCustomFieldTest {
     @Test
     public void testGetSingularObjectFromString() throws Exception
     {
-        MoneyCustomField moneyCustomField = new MoneyCustomField(null, null);
+        MoneyCustomField moneyCustomField = new MoneyCustomField(null, null, null);
         assertEquals("3.00", moneyCustomField.getSingularObjectFromString("3").toString());
         assertEquals("3.03", moneyCustomField.getSingularObjectFromString("3.03").toString());
         assertEquals("3.20", moneyCustomField.getSingularObjectFromString("3.2").toString());
