@@ -11,3 +11,7 @@ To run this app locally, make sure that you have the Atlassian Plugin SDK instal
     atlas-mvn jira:run
 
  [1]: https://developer.atlassian.com/display/JIRADEV/Custom+Fields+in+JIRA
+
+
+
+Atlas-mvn package
