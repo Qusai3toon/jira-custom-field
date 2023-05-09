@@ -1,3 +1,7 @@
 #if($viewField)
-    $$value
+    <strong>$$value</string>
+#elseif(!$value)
+<strong>1.00</strong>
+#else
+<strong>Not Available $viewField</strong>
 #end

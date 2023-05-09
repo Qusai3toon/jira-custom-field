@@ -28,8 +28,8 @@ public class MoneyCustomField extends AbstractSingleFieldType<BigDecimal> {
 
     JiraAuthenticationContext jiraAuthenticationContext;
 
-    public boolean viewField;
-    final String jIRA_ADMINISTRATORS_GROUP = "jira-administrators";
+    private boolean viewField;
+    final String JIRA_ADMINISTRATORS_GROUP = "jira-administrators";
 
     public MoneyCustomField(
             @JiraImport CustomFieldValuePersister customFieldValuePersister,
@@ -43,7 +43,10 @@ public class MoneyCustomField extends AbstractSingleFieldType<BigDecimal> {
         ApplicationUser user = userManager.getUserByName(jiraAuthenticationContext.getLoggedInUser().getName());
         GroupManager groupManager = ComponentAccessor.getGroupManager();
         Set<String> currentUserGroups = (Set<String>) groupManager.getGroupNamesForUser(Objects.requireNonNull(user));
-        this.viewField = currentUserGroups.contains(jIRA_ADMINISTRATORS_GROUP);
+        for (String i : currentUserGroups) {
+            System.out.println(i);
+        }
+        this.viewField = currentUserGroups.contains(JIRA_ADMINISTRATORS_GROUP);
     }
 
 
@@ -57,14 +60,17 @@ public class MoneyCustomField extends AbstractSingleFieldType<BigDecimal> {
 
     @Override
     public BigDecimal getSingularObjectFromString(final String string) throws FieldValidationException {
-        if (string == null)
-            return null;
+        updateViewField();
+        if (string == null) {
+            return new BigDecimal("1.00");
+        }
         try {
             BigDecimal decimal = new BigDecimal(string);
             if (decimal.scale() > 2) {
                 throw new FieldValidationException(
                         "Maximum of 2 decimal places are allowed.");
             }
+            updateViewField();
             return decimal.setScale(2);
         } catch (NumberFormatException ex) {
             throw new FieldValidationException("Not a valid number.");
@@ -80,6 +86,7 @@ public class MoneyCustomField extends AbstractSingleFieldType<BigDecimal> {
     @Override
     protected BigDecimal getObjectFromDbValue(@Nonnull final Object databaseValue)
             throws FieldValidationException {
+
         return getSingularObjectFromString((String) databaseValue);
     }
 
@@ -102,7 +109,11 @@ public class MoneyCustomField extends AbstractSingleFieldType<BigDecimal> {
             current_name = jiraAuthenticationContext.getLoggedInUser().getName();
         }
         Set<String> currentUserGroups = getUserGroups(current_name);
-        return currentUserGroups.contains("jira-administrators");
+        return currentUserGroups.contains(JIRA_ADMINISTRATORS_GROUP);
+    }
+
+    private void updateViewField() {
+        this.viewField = isLoggedInUserAdminUserAdmin();
     }
 
     @Nonnull
