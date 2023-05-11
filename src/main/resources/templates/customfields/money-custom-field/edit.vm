@@ -1,7 +1,9 @@
 #customControlHeader ($action $customField.id $customField.name $fieldLayoutItem.required $displayParameters $auiparams)
 #if($viewField)
-    <input class="text" id="$customField.id" name="$customField.id" type="text" value="$textutils.htmlEncode($!value)" /> $viewField
+    <input class="text" id="$customField.id" name="$customField.id" type="text" value="$textutils.htmlEncode($!value)" required placeholder=""
+                                                                                                                                 oninvalid="this.setCustomValidity('Cant leave money empty.')"
+                                                                                                                                 oninput="setCustomValidity('')"/>
 #else
-<strong>You Can't Edit This Field, Check your permissions. $viewField</strong>
+<input class="text" id="$customField.id" name="$customField.id" type="text" value="1.00" readonly />
 #customControlFooter ($action $customField.id $fieldLayoutItem.fieldDescription $displayParameters $auiparams)
 #end

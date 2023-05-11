@@ -2,6 +2,7 @@ package com.example.plugins.tutorial.jira.customfields;
 
 import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.issue.Issue;
+import com.atlassian.jira.issue.MutableIssue;
 import com.atlassian.jira.issue.customfields.impl.AbstractSingleFieldType;
 import com.atlassian.jira.issue.customfields.impl.FieldValidationException;
 import com.atlassian.jira.issue.customfields.manager.GenericConfigManager;
@@ -19,6 +20,7 @@ import com.atlassian.plugin.spring.scanner.annotation.imports.JiraImport;
 
 import javax.annotation.Nonnull;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -30,6 +32,8 @@ public class MoneyCustomField extends AbstractSingleFieldType<BigDecimal> {
 
     private boolean viewField;
     final String JIRA_ADMINISTRATORS_GROUP = "jira-administrators";
+
+    MutableIssue CustomFieldParentIssue;
 
     public MoneyCustomField(
             @JiraImport CustomFieldValuePersister customFieldValuePersister,
@@ -48,7 +52,6 @@ public class MoneyCustomField extends AbstractSingleFieldType<BigDecimal> {
         }
         this.viewField = currentUserGroups.contains(JIRA_ADMINISTRATORS_GROUP);
     }
-
 
     @Override
     public String getStringFromSingularObject(final BigDecimal singularObject) {
@@ -71,11 +74,12 @@ public class MoneyCustomField extends AbstractSingleFieldType<BigDecimal> {
                         "Maximum of 2 decimal places are allowed.");
             }
             updateViewField();
-            return decimal.setScale(2);
+            return decimal.setScale(2, RoundingMode.UNNECESSARY);
         } catch (NumberFormatException ex) {
             throw new FieldValidationException("Not a valid number.");
         }
     }
+
 
     @Nonnull
     @Override
@@ -86,7 +90,6 @@ public class MoneyCustomField extends AbstractSingleFieldType<BigDecimal> {
     @Override
     protected BigDecimal getObjectFromDbValue(@Nonnull final Object databaseValue)
             throws FieldValidationException {
-
         return getSingularObjectFromString((String) databaseValue);
     }
 
@@ -121,6 +124,10 @@ public class MoneyCustomField extends AbstractSingleFieldType<BigDecimal> {
     public Map<String, Object> getVelocityParameters(Issue issue, CustomField field, FieldLayoutItem fieldLayoutItem) {
         Map<String, Object> params = super.getVelocityParameters(issue, field, fieldLayoutItem);
         params.put("viewField", viewField);
+        CustomFieldParentIssue = (MutableIssue) issue;
+        System.out.println("Summary of related issues:::: " +
+                CustomFieldParentIssue.getSummary() +
+                "ID: " + CustomFieldParentIssue.getId());
         return params;
     }
 }
