@@ -1,1 +1,17 @@
-<h1>edit.vm</h1>
+<html>
+<head>
+<style>
+input {
+border:orange;
+border-width:5px;
+border-style:solid;
+}
+</style>
+</head>
+#customControlHeader ($action $customField.id $customField.name $fieldLayoutItem.required $displayParameters $auiparams)
+#if (!$storyCost)
+<input class="text" id="$customField.id" name="$customField.id" type="text" value="0.00" style="border:orange; border-width:5px; border-style:solid;" readonly/>
+#else <input class="text" id="$customField.id" name="$customField.id" type="text" value="$storyCost" readonly/>
+#end
+
+</html>

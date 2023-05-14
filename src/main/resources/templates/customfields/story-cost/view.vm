@@ -1,1 +1,5 @@
-<h1>view.vm</h1>
+#if (!$storyCost)
+<p>$storyCost</p>
+#else
+<p>$storyCost</p>
+#end
