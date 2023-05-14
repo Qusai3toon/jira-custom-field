@@ -24,7 +24,7 @@ import java.math.RoundingMode;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-
+//mhn,gk
 
 @Scanned
 public class MoneyCustomField extends AbstractSingleFieldType<BigDecimal> {
