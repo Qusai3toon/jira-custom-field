@@ -1,4 +1,4 @@
-package com.example.plugins.tutorial.jira.AO.ToDo.servlet;
+package com.example.plugins.tutorial.jira.servlets;
 
 import com.atlassian.activeobjects.external.ActiveObjects;
 import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;

@@ -28,7 +28,7 @@
     </customfield-type>
 
     <servlet name="Todo List And Add Servlet"
-             class="com.example.plugins.tutorial.jira.AO.ToDo.servlet.TodoServlet_WithService" key="todo-list">
+             class="com.example.plugins.tutorial.jira.servlets.TodoServlet_WithService" key="todo-list">
         <description>A servlet to add and list todos</description>
         <url-pattern>/todo</url-pattern>
     </servlet>

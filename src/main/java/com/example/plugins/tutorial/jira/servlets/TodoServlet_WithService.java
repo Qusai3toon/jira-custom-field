@@ -1,4 +1,4 @@
-package com.example.plugins.tutorial.jira.AO.ToDo.servlet;
+package com.example.plugins.tutorial.jira.servlets;
 
 import com.example.plugins.tutorial.jira.AO.ToDo.Todo;
 import com.example.plugins.tutorial.jira.AO.ToDo.TodoService;
