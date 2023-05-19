@@ -71,37 +71,3 @@ public class TodoServlet extends HttpServlet {
 
     }
 }
-
-
-
-
-
-
-/*
-* @Scanned
-public final class TodoServlet extends HttpServlet
-{
-    @ComponentImport
-    private final ActiveObjects ao;
-
-    @Inject
-    public TodoServlet(ActiveObjects ao)
-    {
-        this.ao = checkNotNull(ao);
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
-    {
-        res.getWriter().write("Todo servlet, doGet");
-        res.getWriter().close();
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
-    {
-        res.getWriter().write("Todo servlet, doPost");
-        res.getWriter().close();
-    }
-}
-*/
