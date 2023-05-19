@@ -128,7 +128,7 @@ public class MoneyCustomField extends AbstractSingleFieldType<BigDecimal> {
         CustomFieldParentIssue = (MutableIssue) issue;
         System.out.println("Summary of related issues:::: " +
                 CustomFieldParentIssue.getSummary() +
-                "ID: " + CustomFieldParentIssue.getId());
+                " ,ID: " + CustomFieldParentIssue.getId());
         return params;
     }
 }

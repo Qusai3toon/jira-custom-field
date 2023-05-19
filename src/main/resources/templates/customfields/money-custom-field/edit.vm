@@ -1,6 +1,6 @@
 #customControlHeader ($action $customField.id $customField.name $fieldLayoutItem.required $displayParameters $auiparams)
 #if($viewField)
-    <input class="text" id="$customField.id" name="$customField.id" type="text" style="border:orange; border-width:5px; border-style:solid;" value="$textutils.htmlEncode($!value)" required placeholder=""
+    <input class="text" id="$customField.id" name="$customField.id" type="text" value="$textutils.htmlEncode($!value)" required placeholder=""
                                                                                                                                  oninvalid="this.setCustomValidity('Cant leave money empty.')"
                                                                                                                                  oninput="setCustomValidity('')"/>
 #else

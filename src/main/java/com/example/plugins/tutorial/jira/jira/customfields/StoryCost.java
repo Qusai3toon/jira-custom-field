@@ -18,6 +18,7 @@ import com.atlassian.jira.security.JiraAuthenticationContext;
 import com.atlassian.jira.security.groups.GroupManager;
 import com.atlassian.jira.user.ApplicationUser;
 import com.atlassian.jira.user.util.UserManager;
+import com.atlassian.plugin.PluginAccessor;
 import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.plugin.spring.scanner.annotation.imports.JiraImport;
@@ -26,6 +27,8 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -37,13 +40,28 @@ public class StoryCost extends AbstractSingleFieldType<BigDecimal> {
     MutableIssue currentIssue;
     BigDecimal storyCost = new BigDecimal("0.00");
 
+
+
     public StoryCost(@JiraImport CustomFieldValuePersister customFieldValuePersister,
                      @JiraImport GenericConfigManager genericConfigManager,
                      @ComponentImport JiraAuthenticationContext jiraApplicationContext) {
         super(customFieldValuePersister, genericConfigManager);
         this.jiraAuthenticationContext = jiraApplicationContext;
-//        getLinkedTasks(currentIssue);
+        PluginAccessor pluginAccessor = ComponentAccessor.getPluginAccessor();
+        pluginAccessor.getPlugin("").disable();
     }
+
+    @PostConstruct
+    private void myPostConstruct() {
+        System.out.println("::::::::::::myPostConstruct:::::::::::::");
+    }
+
+    @PreDestroy
+    private void myPreDestroy() {
+        System.out.println("::::::::::::PreDestroy:::::::::::::");
+    }
+
+
 
     @Nonnull
     @Override
