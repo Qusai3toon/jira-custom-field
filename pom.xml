@@ -94,6 +94,15 @@
             <version>1.8.5</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.atlassian.activeobjects/activeobjects-plugin -->
+        <dependency>
+            <groupId>com.atlassian.activeobjects</groupId>
+            <artifactId>activeobjects-plugin</artifactId>
+            <version>5.2.0-2ccf9383</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
     <scm>
         <developerConnection>
