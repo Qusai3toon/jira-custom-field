@@ -33,8 +33,20 @@
         <url-pattern>/todo</url-pattern>
     </servlet>
 
+    <servlet name="A servlet that will show the evaluation result for an employee."
+             class="com.example.plugins.tutorial.jira.servlets.EvaluationServlet" key="evaluation_servlet">
+        <description>A servlet to add and list todos</description>
+        <url-pattern>/employee</url-pattern>
+    </servlet>
+
     <ao key="ao-module">
         <description>The module configuring the Active Objects service used by this plugin</description>
         <entity>com.example.plugins.tutorial.jira.AO.ToDo.Todo</entity>
+        <entity>com.example.plugins.tutorial.jira.AO.evaluationProcess.Evaluation</entity>
     </ao>
+
+<!--    <ao key="evaluation-active-objects">-->
+<!--        <description>This AO module is for building a simple representation of the Evaluation process</description>-->
+<!--        -->
+<!--    </ao>-->
 </atlassian-plugin>

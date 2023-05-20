@@ -14,39 +14,3 @@ public interface Todo extends Entity {
 
     void setComplete(boolean complete);
 }
-
-
-
-
-
-
-
-/*
- * This Class is the representation of the todo item
- * the properties are:
- *       - Description. (String)
- *       - isComplete. (boolean)
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- * */
