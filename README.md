@@ -13,3 +13,4 @@ To run this app locally, make sure that you have the Atlassian Plugin SDK instal
 To quickly reload while modifying this plugin use the below command:  
 
     Atlas-mvn package
+ 
