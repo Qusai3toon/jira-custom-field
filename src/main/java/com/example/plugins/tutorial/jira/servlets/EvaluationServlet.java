@@ -1,7 +1,7 @@
 package com.example.plugins.tutorial.jira.servlets;
 
 import com.atlassian.jira.security.JiraAuthenticationContext;
-import com.example.plugins.tutorial.jira.AO.evaluationProcess.evaluationService.EvaluationService;
+import com.example.plugins.tutorial.jira.AO.evaluationProcess.evaluationService.EvaluationService; 
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
